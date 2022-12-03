@@ -17,6 +17,12 @@ local outcome_decoder = {
     Z = "win",
 }
 
+-- Get the shape you should play to get the desired outcome
+-- in a round of rock-paper-scissors.
+--
+-- Params:
+--  oponent: A string describing the shape played by the oponent.
+--  outcome: A string describing the desired outcome of the round.
 local function get_shape_to_play(oponent, outcome)
     if outcome == "draw" then
         return oponent
@@ -31,6 +37,13 @@ local function get_shape_to_play(oponent, outcome)
     return should_play[oponent][outcome]
 end
 
+-- Get details of one round of rock-paper-scissors.
+--
+-- Returns the shape you played and the outcome.
+--
+-- Params:
+--  description: A string describing the round: two space separated symbols
+--               encoding the shape played by the oponent and the desired outcome.
 local function get_round_info(description)
     local oponent_symbol, outcome_symbol = day02.get_symbols(description)
     local oponent = shape_decoder[oponent_symbol]

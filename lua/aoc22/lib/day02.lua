@@ -16,10 +16,23 @@ local outcome_scores = {
 
 local P = {}
 
+-- Get the rock-paper-scissors symbols from an input line
+--
+-- Params:
+--  description: A string containing 2 space separated symbols describing
+--               one round of a rock-paper-scissors game.
 function P.get_symbols(description)
     return unpack(vim.split(description, " ", { trimempty = true }), 1, 2)
 end
 
+-- Calculate your score for a rock-paper-scissors game
+--
+-- Params:
+--  in_buffer:         The input buffer handle. Each line in the buffer should have
+--                     two space-separated symbols to describe one round of the game.
+--  get_round_details: A function to get the outcome of a single round. Should take
+--                     a round description string (one line from the input) and return
+--                     the shape played and the outcome.
 function P.score_game(in_buffer, get_round_details)
     local score = 0
     for _, round_description in buffer_utils.iter_lines(in_buffer) do
