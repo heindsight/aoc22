@@ -1,4 +1,4 @@
-# Advent of code 2022
+# Advent of Code 2022
 
 This year, I've decided to do [Advent of Code](https://adventofcode.com/2022) as
 a [Neovim](https://neovim.io/) Lua plugin.
