@@ -35,7 +35,7 @@ end
 --                     the shape played and the outcome.
 function P.score_game(in_buffer, get_round_details)
     local score = 0
-    for _, round_description in buffer_utils.iter_lines(in_buffer) do
+    for _, round_description in buffer_utils.iter_lines(in_buffer, { skip_blank = true }) do
         local played, outcome = get_round_details(round_description)
         score = score + shape_scores[played] + outcome_scores[outcome]
     end
