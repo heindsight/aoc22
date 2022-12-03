@@ -18,11 +18,11 @@ $ git clone git@github.com:heindsight/aoc22.git
 
 ## Running the solutions
 
-The plugin defines an `AoC22` command that can be used to run the solutions. For example to solve
+The plugin defines an `:AoC22` command that can be used to run the solutions. For example to solve
 the Day 1 part A puzzle, open your puzzle input in Neovim and run:
 
 ```
-:AoC day01a
+:AoC22 day01a
 ```
 
 Puzzle input will be read from the current buffer, on completion output will be written to a new
@@ -30,6 +30,6 @@ buffer and loaded into a new split window.
 
 ## Reloading
 
-The plugin also defines an `AoC22Reload` command, which can be used to reload the solutions. This is
+The plugin also defines an `:AoC22Reload` command, which can be used to reload the solutions. This is
 mainly useful during development, as it allows me to modify the code, reload and then run the
 updated code without needing to quit and restart neovim.
