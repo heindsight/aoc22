@@ -8,10 +8,7 @@ local P = {}
 
 function P.solve(in_buffer)
     local max_calories = day01.get_max_elves_calories(in_buffer, 1)
-
-    local out_buffer = vim.api.nvim_create_buf(true, false)
-    buffer_utils.replace_buffer_content(out_buffer, { max_calories })
-    return out_buffer
+    return buffer_utils.write_new_buffer({ max_calories })
 end
 
 return P

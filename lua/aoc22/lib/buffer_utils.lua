@@ -59,4 +59,11 @@ function P.replace_buffer_content(buffer, lines)
     vim.api.nvim_buf_set_lines(buffer, 0, -1, true, vim.tbl_map(tostring, lines))
 end
 
+-- Create a new buffer and write
+function P.write_new_buffer(lines)
+    local out_buffer = vim.api.nvim_create_buf(true, false)
+    P.replace_buffer_content(out_buffer, lines)
+    return out_buffer
+end
+
 return P

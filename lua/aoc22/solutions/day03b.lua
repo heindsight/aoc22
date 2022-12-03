@@ -25,9 +25,7 @@ function P.solve(in_buffer)
         end
     end
 
-    local out_buffer = vim.api.nvim_create_buf(true, false)
-    buffer_utils.replace_buffer_content(out_buffer, { priority })
-    return out_buffer
+    return buffer_utils.write_new_buffer({ priority })
 end
 
 return P

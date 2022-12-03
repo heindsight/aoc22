@@ -54,10 +54,7 @@ end
 
 function P.solve(in_buffer)
     local score = day02.score_game(in_buffer, get_round_info)
-
-    local out_buffer = vim.api.nvim_create_buf(true, false)
-    buffer_utils.replace_buffer_content(out_buffer, { score })
-    return out_buffer
+    return buffer_utils.write_new_buffer({ score })
 end
 
 return P
