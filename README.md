@@ -13,7 +13,7 @@ a [Neovim](https://neovim.io/) [Lua plugin](https://neovim.io/doc/user/lua.html)
 ```
 $ mkdir -p ~/.config/nvim/pack/start/fun
 $ cd ~/.config/nvim/pack/start/fun
-$ git clone git@github.com:heindsight/aoc22.git
+$ git clone https://github.com/heindsight/aoc22.git
 ```
 
 ## Running the solutions
