@@ -18,7 +18,7 @@ vim.api.nvim_create_user_command(
     "AoC22Reload",
     function()
         local aoc22_loaded = vim.tbl_filter(
-            function(pkg) return pkg.match("^aoc22.*") end,
+            function(pkg) return pkg:match("^aoc22.*") end,
             vim.tbl_keys(package.loaded)
         )
         for _, pkg in ipairs(aoc22_loaded) do
