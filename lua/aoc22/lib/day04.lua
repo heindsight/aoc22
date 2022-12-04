@@ -9,8 +9,8 @@ local P = {}
 -- Params:
 --  ival_str: The string representing the interval
 local function interval_from_string(ival_str)
-    return interval.Interval:new(
-        unpack(vim.tbl_map(tonumber, vim.split(ival_str, "-")))
+    return interval.Interval(
+        vim.tbl_map(tonumber, vim.split(ival_str, "-"))
     )
 end
 
