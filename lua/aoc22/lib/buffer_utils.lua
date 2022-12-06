@@ -32,6 +32,9 @@ function P.iter_lines(buffer, opts)
     --  buff: A buffer handle.
     --  lineno: The current line number.
     local function buf_next_line(buff, lineno)
+        -- if lineno is absent, default to -1
+        lineno = lineno or -1
+
         P.assert_loaded(buff)
 
         lineno = lineno + 1
@@ -50,6 +53,16 @@ function P.iter_lines(buffer, opts)
     end
 
     return buf_next_line, buffer, start_from - 1
+end
+
+-- Get the first (non-blank) line in a buffer
+--
+-- Params:
+--  buffer: The buffer handle
+function P.get_first_line(buffer)
+    local iter = P.iter_lines(buffer, { skip_blank = true })
+    local _, data = iter(buffer)
+    return data
 end
 
 -- Replace the content of a buffer with a new set of lines
