@@ -17,11 +17,13 @@ end
 --  buffer: The handle of the buffer to iterate over
 --  opts:   Optional keyword arguments:
 --          - skip_blank: if true, the iteration will skip over blank lines.
+--          - start_from: The line number to start the iteration from.
 function P.iter_lines(buffer, opts)
     P.assert_loaded(buffer)
 
     opts = opts or {}
     local skip_blank = opts.skip_blank
+    local start_from = opts.start_from or 0
 
     -- Buffer line iterator function.
     -- Return the next line number and it's content (if there is one)
@@ -47,7 +49,7 @@ function P.iter_lines(buffer, opts)
         end
     end
 
-    return buf_next_line, buffer, -1
+    return buf_next_line, buffer, start_from - 1
 end
 
 -- Replace the content of a buffer with a new set of lines
