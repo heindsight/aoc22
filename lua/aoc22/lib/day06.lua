@@ -11,10 +11,10 @@ local function count_unique(stream, pos, n)
 
     for lookbehind = 0, n do
         local character = stream:byte(pos - lookbehind)
-        if vim.tbl_contains(seen, character) then
+        if seen[character] then
             return lookbehind
         else
-            table.insert(seen, character)
+            seen[character] = true
         end
     end
     return n
