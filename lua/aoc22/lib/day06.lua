@@ -7,9 +7,9 @@
 --  pos:    Consider sequences ending in this position
 --  n:      The maximum subsequence length we're interested in
 local function count_unique(stream, pos, n)
-    local seen = {}
+    local seen = { [stream:byte(pos)] = true }
 
-    for lookbehind = 0, n do
+    for lookbehind = 1, n - 1 do
         local character = stream:byte(pos - lookbehind)
         if seen[character] then
             return lookbehind
@@ -33,7 +33,7 @@ function P.find_marker(stream, marker_length)
 
     while pos <= #stream do
         local unique = count_unique(stream, pos, marker_length)
-        if  unique == marker_length then
+        if unique == marker_length then
             return pos
         else
             pos = pos + marker_length - unique
