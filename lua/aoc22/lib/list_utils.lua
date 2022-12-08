@@ -25,4 +25,22 @@ function P.sum(list)
     return vim.fn.reduce(list, function(val_a, val_b) return val_a + val_b end, 0)
 end
 
+-- Sum a list of numbers that satisfy a predicate
+--
+-- Params:
+--  list: A list-like table to sum up.
+function P.sum_if(list, predicate)
+    return vim.fn.reduce(
+        list,
+        function(acc, val)
+            if predicate(val) then
+                return acc + val
+            else
+                return acc
+            end
+        end,
+        0
+    )
+end
+
 return P
